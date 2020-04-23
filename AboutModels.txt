@@ -1,0 +1,26 @@
+model.layer			flattened list of the layers comprising the model
+model.inputs		the list of input tensors of the model
+model.outputs		the list of output tensors of the model
+model.summary()		prints a summary representation of your model
+
+model.get_congif()	returns a dictionary containing the configuration of the model. the model can be reinstantial from its config via:
+config = model.get_config()
+model = Model.from_config(config)
+model = Sequential.from_config(config)
+
+model.get_weights()	returns a list of all weights tensors in the model, as np.arrays
+
+model.set_weights(weights)	set the values of the weights of the model, from a list of arrays.
+
+model.to_json()		returns a representation of the model as a JSON string. you can reinstantiate the same model from the JSON string via:
+from keras.models import model_from_json
+json_string = model.to_json()
+model = model_from_json(json_string)
+
+model.to_yaml()		returns a representation of the model as a YAML string.
+from keras.models import model_from_yaml
+yaml_string = model.to_yaml()
+model = model_from_yaml(yaml_string)
+
+model.save_weights(filepath)
+model.load_weights(filepath, by_name=File)
